@@ -6,41 +6,625 @@
     <title>Portfolio | Your Name here</title>
 
     <!-- ! Apply fonts imported from Google Fonts -->
-    <!-- Insert code here -->
+    <!-- Documentation: https://developers.google.com/fonts/docs/getting_started -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- ! Internat styes -->
+    <!-- ! Internal styes -->
     <style>
-        /* insert styles here */
+      /* CSS Variables for easy theme adjustments */
+      :root {
+        --primary-color: #1a1a1a;
+        --secondary-color: #6c757d;
+        --accent-color: #4caf50; /* A touch of green for accents */
+        --light-bg-color: #f8f9fa;
+        --white: #ffffff;
+        --border-radius: 0.5rem; /* Converted from 8px */
+        --transition-speed: 0.3s;
+        /* Optional: Set base font size for easier rem calculations (e.g., 62.5% = 10px) */
+        font-size: 100%; /* Default 16px. 1rem = 16px */
+      }
+
+      /* Base Styling & Font Application */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Lato", sans-serif;
+        line-height: 1.6;
+        color: var(--primary-color);
+        background-color: var(--white);
+        scroll-behavior: smooth;
+      }
+
+      /* Reusable Components */
+      .section-padding {
+        padding: 5rem 1.25rem; /* Converted from 80px 20px */
+        max-width: 75rem; /* Converted from 1200px */
+        margin: 0 auto;
+      }
+
+      h2 {
+        font-size: 2.5rem; /* Converted from 2.5em */
+        text-align: center;
+        margin-bottom: 3.75rem; /* Converted from 60px */
+        color: var(--primary-color);
+      }
+
+      /* --- NAVIGATION --- */
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.9375rem 1.25rem; /* Converted from 15px 20px */
+        background-color: var(--white);
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav a {
+        margin: 0 0.9375rem; /* Converted from 15px */
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+        transition: color var(--transition-speed);
+      }
+
+      nav a:hover {
+        color: var(--accent-color);
+      }
+
+      /* --- 1. LANDING SECTION --- */
+      #landing {
+        min-height: 80dvh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--light-bg-color);
+        border-radius: 0 0 2rem 2rem; /* tl = 0, tr = 0, br = 32px, bl = 32px */
+      }
+
+      .landing-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem; /* Converted from 20px */
+        padding: 2.5rem; /* Converted from 40px */
+      }
+
+      .profile-pic-large {
+        width: 9.375rem; /* Converted from 150px */
+        height: 9.375rem; /* Converted from 150px */
+        border-radius: 50%;
+        object-fit: cover;
+        border: 0.25rem solid var(--primary-color); /* Converted from 4px */
+        margin-bottom: 0.625rem; /* Converted from 10px */
+      }
+
+      .landing-content h1 {
+        font-size: 3.5rem; /* Converted from 3.5em */
+        font-weight: 700;
+      }
+
+      .landing-content p {
+        font-size: 1.2rem; /* Converted from 1.2em */
+        color: var(--secondary-color);
+        margin-bottom: 1.25rem; /* Converted from 20px */
+      }
+
+      .cta-group a {
+        display: inline-block;
+        padding: 0.625rem 1.5625rem; /* Converted from 10px 25px */
+        margin: 0 0.625rem; /* Converted from 10px */
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        transition: all var(--transition-speed);
+        border: 0.125rem solid var(--primary-color); /* Converted from 2px */
+      }
+
+      .primary-cta {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+
+      .primary-cta:hover {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Converted from 0 4px 8px */
+      }
+
+      .secondary-cta {
+        background-color: var(--white);
+        color: var(--primary-color);
+      }
+
+      .secondary-cta:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+
+      /* --- 2. ABOUT ME SECTION --- */
+      #about {
+        background-color: var(--white);
+      }
+
+      .about-grid {
+        display: flex;
+        gap: 2.5rem; /* Converted from 40px */
+        align-items: flex-start;
+      }
+
+      .about-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .about-image img {
+        width: 100%;
+        max-width: 18.75rem; /* Converted from 300px */
+        border-radius: var(--border-radius);
+      }
+
+      .about-text {
+        flex: 2;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem; /* Converted from 1.8em */
+        font-weight: lighter;
+        font-style: italic;
+        margin-bottom: 0.9375rem; /* Converted from 15px */
+      }
+
+      .info-card-container {
+        display: flex;
+        gap: 1.25rem; /* Converted from 20px */
+        margin: 1.5625rem 0; /* Converted from 25px 0 */
+      }
+
+      .info-card {
+        flex: 1;
+        padding: 1.25rem; /* Converted from 20px */
+        border: 0.0625rem solid #ddd; /* Converted from 1px */
+        border-radius: var(--border-radius);
+        text-align: center;
+        background-color: var(--light-bg-color);
+        box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.05); /* Converted from 0 2px 5px */
+      }
+
+      .info-card h4 {
+        font-size: 1.2rem; /* Converted from 1.2em */
+        color: var(--accent-color);
+        margin-bottom: 0.3125rem; /* Converted from 5px */
+      }
+
+      /* --- 3. EXPERIENCE SECTION --- */
+      #experience {
+        background-color: var(--light-bg-color);
+      }
+
+      .experience-container {
+        display: flex;
+        gap: 2.5rem; /* Converted from 40px */
+        justify-content: center;
+      }
+
+      .experience-card {
+        flex: 1;
+        min-width: 18.75rem; /* Converted from 300px */
+        padding: 1.875rem; /* Converted from 30px */
+        background-color: var(--white);
+        border-radius: var(--border-radius);
+        box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.05); /* Converted from 0 4px 10px */
+        text-align: center;
+      }
+
+      .experience-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1.5625rem; /* Converted from 25px */
+        border-bottom: 0.125rem solid var(--accent-color); /* Converted from 2px */
+        padding-bottom: 0.625rem; /* Converted from 10px */
+        display: inline-block;
+      }
+
+      .skill-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+        margin-top: 0.9375rem; /* Converted from 15px */
+      }
+
+      .skill-list li {
+        width: calc(50% - 0.625rem); /* Converted from 10px */
+        margin-bottom: 0.9375rem; /* Converted from 15px */
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+      }
+
+      .skill-list li::before {
+        content: "•";
+        color: var(--accent-color);
+        font-size: 1.2rem; /* Converted from 1.2em */
+        margin-right: 0.625rem; /* Converted from 10px */
+      }
+
+      /* --- 4. PROJECTS SECTION --- */
+      .projects-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.875rem; /* Converted from 30px */
+        justify-content: center;
+      }
+
+      .project-card {
+        flex-basis: calc(33.333% - 1.25rem); /* Converted from 20px */
+        min-width: 17.5rem; /* Converted from 280px */
+        background-color: var(--white);
+        border-radius: var(--border-radius);
+        box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1); /* Converted from 0 4px 15px */
+        overflow: hidden;
+        transition: transform var(--transition-speed);
+      }
+
+      .project-card:hover {
+        transform: translateY(-0.3125rem); /* Converted from -5px */
+      }
+
+      .project-image {
+        width: 100%;
+        height: 12.5rem; /* Converted from 200px */
+        background-color: var(--light-bg-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem; /* Converted from 1.5em */
+        color: var(--secondary-color);
+      }
+
+      .project-details {
+        padding: 1.25rem; /* Converted from 20px */
+      }
+
+      .project-details h3 {
+        font-size: 1.5rem; /* Converted from 1.5em */
+        margin-bottom: 0.625rem; /* Converted from 10px */
+        text-align: left;
+      }
+
+      .project-details p {
+        color: var(--secondary-color);
+        margin-bottom: 0.9375rem; /* Converted from 15px */
+        font-size: 0.95rem; /* Converted from 0.95em */
+      }
+
+      .project-links a {
+        display: inline-block;
+        margin-right: 0.9375rem; /* Converted from 15px */
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* --- 5. CONTACT ME SECTION --- */
+      #contact {
+        text-align: center;
+        background-color: var(--light-bg-color);
+      }
+
+      #contact p {
+        font-size: 1.2rem; /* Converted from 1.2em */
+        margin-bottom: 1.875rem; /* Converted from 30px */
+        color: var(--secondary-color);
+      }
+
+      .contact-links a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5625rem; /* Converted from 12px 25px */
+        margin: 0 0.9375rem; /* Converted from 15px */
+        border: 0.125rem solid var(--primary-color); /* Converted from 2px */
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+        transition: all var(--transition-speed);
+      }
+
+      .contact-links a:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+
+      .contact-links a span {
+        margin-right: 0.625rem; /* Converted from 10px */
+        font-size: 1.2rem; /* Converted from 1.2em */
+      }
+
+      /* --- 6. FOOTER --- */
+      footer {
+        text-align: center;
+        padding: 1.25rem; /* Converted from 20px */
+        border-top: 0.0625rem solid #eee; /* Converted from 1px */
+        background-color: var(--white);
+      }
+
+      .footer-nav a {
+        margin: 0 0.625rem; /* Converted from 10px */
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-nav a:hover {
+        color: var(--accent-color);
+      }
+
+      .copyright {
+        margin-top: 0.625rem; /* Converted from 10px */
+        font-size: 0.8rem; /* Converted from 0.8em */
+        color: var(--secondary-color);
+      }
+
+      /* --- RESPONSIVE DESIGN (Media Queries) --- */
+      @media (max-width: 56.25rem) {
+        /* Converted from 900px */
+        h2 {
+          font-size: 2rem; /* Converted from 2em */
+        }
+
+        .about-grid {
+          flex-direction: column;
+        }
+
+        .about-image {
+          margin-bottom: 1.875rem; /* Converted from 30px */
+        }
+
+        .info-card-container {
+          flex-direction: column;
+        }
+
+        .experience-container {
+          flex-direction: column;
+        }
+
+        .skill-list li {
+          width: 100%; /* Single column on small devices */
+        }
+
+        .projects-grid {
+          gap: 1.25rem; /* Converted from 20px */
+        }
+
+        .project-card {
+          flex-basis: 100%; /* Single column for projects on mobile */
+        }
+      }
+
+      @media (max-width: 37.5rem) {
+        /* Converted from 600px */
+        .section-padding {
+          padding: 3.125rem 0.9375rem; /* Converted from 50px 15px */
+        }
+
+        nav {
+          flex-wrap: wrap;
+        }
+
+        .landing-content h1 {
+          font-size: 2.5rem; /* Converted from 2.5em */
+        }
+
+        .cta-group {
+          display: flex;
+          flex-direction: column;
+          gap: 0.625rem; /* Converted from 10px */
+        }
+
+        .cta-group a {
+          margin: 0;
+          width: 100%;
+        }
+
+        .contact-links a {
+          margin: 0.3125rem; /* Converted from 5px */
+        }
+      }
     </style>
   </head>
 
   <body>
     <!-- ! Start of nav (Main Navigation) -->
-        <!-- Insert HTML syntax here -->
+    <nav>
+      <a href="#landing">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <!-- ! End of nav (Main Navigation) -->
 
     <!-- ! Start of Landing section -->
-        <!-- Insert HTML syntax here -->
+    <section id="landing" class="section-padding">
+      <div class="landing-content">
+        <!-- Read placehold.co documentation on rendering placeholder text -->
+        <img
+          src="https://placehold.co/200x200/000000/FFFFFF?text=JD"
+          alt="Profile Picture Placeholder"
+          class="profile-pic-large"
+        />
+        <p>Hello, I&apos;m</p>
+        <h1>John Doe</h1>
+        <p>Jr Fullstack Developer | Mid-career Professional</p>
+        <div class="cta-group">
+          <a href="#contact" class="secondary-cta">Contact Me</a>
+          <a href="#" class="primary-cta">Download CV</a>
+        </div>
+      </div>
+    </section>
     <!-- ! End of Landing section -->
 
     <!-- ! Start of About Me section -->
-        <!-- Insert HTML syntax here -->
+    <section id="about" class="section-padding">
+      <h2>About Me</h2>
+      <div class="about-grid">
+        <div class="about-image">
+          <img
+            src="https://placehold.co/600x600/CCCCCC/6c757d?text=My+Portrait"
+            alt="Placeholder image for portrait"
+          />
+        </div>
+        <div class="about-text">
+          <h3>"My Passion? Product Development through Clean Code..."</h3>
+          <p>
+            Determined individual who is theming with excitement about embarking
+            on a career in <b>fullstack development</b>. Having completed the
+            <b>Junior Fullstack Developer Bootcamp</b> through SkillsFuture
+            Career Transition Programme (SCTP), I am proactively seeking
+            opportunites to apply my skills in real-world settings. With 5 years
+            of prior experience in quality assurance in the manufacturing
+            industry, I excel in identifying and resolving complex issues while
+            maintaining meticulous attention to detail, which are highly
+            transferable assets for building robust and reliable solutions.
+          </p>
+
+          <div class="info-card-container">
+            <div class="info-card">
+              <h4>5+ Years</h4>
+              <p>Quality Assurance</p>
+            </div>
+            <div class="info-card">
+              <h4>BSc. Mechanical Engineering</h4>
+              <p>Education</p>
+            </div>
+          </div>
+
+          <p>
+            I believe in writing code that is readable by others. Currently
+            exploring advanced techniques in fullstack dev., best practices and
+            architectural design patterns (e.g., MVC, microservices).
+          </p>
+        </div>
+      </div>
+    </section>
     <!-- ! End of About Me section -->
 
     <!-- ! Start of Experience section -->
-        <!-- Insert HTML syntax here -->
+    <section id="experience" class="section-padding">
+      <h2>Skills</h2>
+      <div class="experience-container">
+        <div class="experience-card">
+          <h3>Tech Stack</h3>
+          <ul class="skill-list">
+            <li>HTML5 & Semantic Markup</li>
+            <li>CSS3 (and Bootstrap)</li>
+            <li>JavaScript (ES6+)</li>
+            <li>React</li>
+            <li>Java</li>
+            <li>Springboot (Maven)</li>
+          </ul>
+        </div>
+        <div class="experience-card">
+          <h3>Tools & Concepts</h3>
+          <ul class="skill-list">
+            <li>Version Control (Git, Github)</li>
+            <li>Client-Server Artchitecture</li>
+            <li>API Development (Postman)</li>
+            <li>Unit Testing (Jest/jUnit)</li>
+            <li>Visual Studio Code</li>
+            <li>IntelliJ IDEA</li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <!-- ! End of Experience section -->
 
     <!-- ! Start of Projects section -->
-        <!-- Insert HTML syntax here -->
+    <section id="projects" class="section-padding">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">Project 1</div>
+          <div class="project-details">
+            <h3>Capstone project</h3>
+            <p>
+              Developed a dynamic, product cart application with authentication
+              and checkout features.
+            </p>
+            <div class="project-links">
+              <a href="#">View Demo</a>
+              <a href="#">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">Project 2</div>
+          <div class="project-details">
+            <h3>Spotify Playlist</h3>
+            <p>
+              Designed and styled a dashboard in React that captures user's
+              playlist through Spotify APIs.
+            </p>
+            <div class="project-links">
+              <a href="#">View Demo</a>
+              <a href="#">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">Project 3</div>
+          <div class="project-details">
+            <h3>Student Enrolment System</h3>
+            <p>
+              Created an enrolment system to track students' course-enrolments
+              and grade performance.
+            </p>
+            <div class="project-links">
+              <a href="#">View Demo</a>
+              <a href="#">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- ! End of Projects section -->
 
     <!-- ! Start of Contact section -->
-        <!-- Insert HTML syntax here -->
+    <section id="contact" class="section-padding">
+      <h2>Contact Me</h2>
+      <p>Let's connect!</p>
+      <div class="contact-links">
+        <a href="mailto:john.doe@example.com"> <span>📧</span> Email Me </a>
+        <a href="https://linkedin.com/in/johndoe">
+          <span>🔗</span> LinkedIn Profile
+        </a>
+      </div>
+    </section>
     <!-- ! End of Contact section -->
 
     <!-- ! Start of Footer -->
-        <!-- Insert HTML syntax here -->
+    <footer>
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="copyright">&copy; 2025 John Doe. All rights reserved.</p>
+    </footer>
     <!-- ! End of Footer -->
   </body>
 </html>

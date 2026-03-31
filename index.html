@@ -14,7 +14,190 @@
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
     rel="stylesheet" />
 
-  <!-- ! Internal styles -->
+    <!-- External stylesheet for portfolio page -->
+     <link rel="stylesheet" href="./css/styles.css">
+
+  <!-- ! Start of nav (Main Navigation) -->
+  <nav>
+    <a href="#landing">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <!-- ! End of nav (Main Navigation) -->
+
+  <!-- ! Start of Landing section -->
+  <section id="landing" class="section-padding">
+    <div class="landing-content">
+      <img class="profile-pic-large" src="https://placehold.co/200x200/000000/FFFFFF?text=JD"
+        alt="Profile Picture Placeholder" />
+      <p>Hello, I&apos;m</p>
+      <h1>Sarah Moses</h1>
+
+      <p>Jr Fullstack Developer | Mid-career Professional</p>
+      <div class="cta-group">
+        <a class="contact" href="#contact">Contact Me</a>
+        <a href="#">Download CV</a>
+      </div>
+    </div>
+  </section>
+  <!-- ! End of Landing section -->
+
+  <!-- ! Start of About Me section -->
+  <section id="about" class="section-padding">
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://placehold.co/600x600/CCCCCC/6c757d?text=My+Portrait" alt="Placeholder image for portrait" />
+      </div>
+
+      <div class="about-text">
+        <h3>"My Passion? Product Development through Clean Code..."</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam
+          debitis rem nemo, animi quaerat sed saepe nulla nesciunt facilis
+          tempore. Optio molestias laborum suscipit doloribus tempora magnam,
+          voluptatum eos et debitis dolore pariatur necessitatibus nesciunt ea
+          quas porro officiis sint fugit sapiente natus cumque provident ut
+          modi? Totam, tenetur nobis.
+        </p>
+        <div class="info-card-container">
+          <div class="info-card">
+            <h4>Years of Experience: 5+ years</h4>
+            <p>Service Desk Engineer</p>
+          </div>
+          <div class="info-card">
+            <h4>Education</h4>
+            <p>Diploma in Infocomm Technology</p>
+          </div>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
+          perferendis quaerat a provident facilis asperiores ex delectus
+          pariatur modi maiores minima, odio numquam repellat, odit atque
+          perspiciatis. Ea, sint incidunt?
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- ! End of About Me section -->
+
+  <!-- ! Start of Experience section -->
+  <section id="experience" class="section-padding">
+    <h2>Skills</h2>
+    <div class="experience-container">
+      <div class="experience-card">
+        <h3>Tech Stack</h3>
+        <ul class="skill-list">
+          <li>HTML5 & Semantic Markup</li>
+          <li>CSS3 (and Bootstrap)</li>
+          <li>JavaScript (ES6+)</li>
+          <li>React</li>
+          <li>Java</li>
+          <li>Springboot (Maven)</li>
+        </ul>
+      </div>
+      <div class="experience-card">
+        <h3>Tools and Concepts</h3>
+        <ul class="skill-list">
+          <li>Version Control (Git, Github)</li>
+          <li>Client-Server Artchitecture</li>
+          <li>API Development (Postman)</li>
+          <li>Unit Testing (Jest/jUnit)</li>
+          <li>Visual Studio Code</li>
+          <li>IntelliJ IDEA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- ! End of Experience section -->
+
+  <!-- ! Start of Projects section -->
+  <section id="projects" class="section-padding">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <!-- ! TODO Card 1 -->
+      <div class="project-card">
+        <div class="project-image project-image1">
+          Find out more ...
+        </div>
+        <div class="project-details">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div class="project-links">
+            <a href="#">View Demo</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+      <!-- ! TODO Card 2 -->
+      <div class="project-card">
+        <div class="project-image project-image2">
+          Find out more ...
+        </div>
+        <div class="project-details">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div class="project-links">
+            <a href="#">View Demo</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+      <!-- ! TODO Card 3 -->
+      <div class="project-card">
+        <div class="project-image project-image3">
+          Find out more ...
+        </div>
+        <div class="project-details">
+          <h3>Project 3</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div class="project-links">
+            <a href="#">View Demo</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ! End of Projects section -->
+
+  <!-- ! Start of Contact section -->
+  <section id="contact" class="section-padding">
+    <h2>Contact Me</h2>
+    <p>Let&apos;s connect!</p>
+    <!-- TODO links to email and to LinkedIn -->
+    <div class="contact-links">
+      <a href="#">
+        <span>📧</span> Email
+      </a>
+      <a href="#">
+        <span>🔗</span> LinkedIn
+      </a>
+    </div>
+  </section>
+  <!-- ! End of Contact section -->
+
+  <!-- ! Start of Footer -->
+  <footer>
+    <div>
+      <!-- TODO page links -->
+      <a href="#landing">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>
+      <!-- TODO Copyright information -->
+      &copy; 2026 John Joe. All rights reserved.
+    </p>
+  </footer>
+  <!-- ! End of Footer -->
+</body>
+
+</html> <!-- ! Internal styles -->
   <style>
     /* CSS Variables for easy theme adjustments */
     :root {
